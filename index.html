@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Carella</title>
+    <meta name="description" content="Chris Carella — building AI things at Deloitte. Computer scientist, capitalist, product manager, builder.">
+    <meta property="og:title" content="Chris Carella">
+    <meta property="og:description" content="Building AI things at Deloitte. Equal parts computer scientist, capitalist, product manager and builder.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#FFE156">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #FFFDF7;
+            color: #1A1A1A;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        a {
+            color: #1A1A1A;
+            font-weight: 700;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            background: #FFE156;
+        }
+
+        /* ---- HEADER ---- */
+        header {
+            border-bottom: 3px solid #000;
+            padding: 1.2rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        nav a {
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            padding: 5rem 0 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: #FFE156;
+            padding: 0 0.15em;
+            display: inline;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .hero .tagline {
+            font-size: 1.35rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 3px solid #000;
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 3px 3px 0 #000;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .pill:nth-child(1) {
+            background: #FFE156;
+            transform: rotate(-1deg);
+        }
+
+        .pill:nth-child(2) {
+            background: #FF6B9D;
+            transform: rotate(0.5deg);
+        }
+
+        .pill:nth-child(3) {
+            background: #A8D8FF;
+            transform: rotate(-0.5deg);
+        }
+
+        .pill:nth-child(4) {
+            background: #C1FF72;
+            transform: rotate(1deg);
+        }
+
+        .pill:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 5px 5px 0 #000;
+        }
+
+        /* ---- EXPERIMENTS SECTION ---- */
+        .experiments {
+            padding: 3rem 0 5rem;
+        }
+
+        .section-heading {
+            display: inline-block;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            padding: 0.3rem 0.8rem;
+            background: #FF6B9D;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            margin-bottom: 3rem;
+        }
+
+        /* ---- TIMELINE ---- */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-left: 8px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #000;
+        }
+
+        .timeline-entry {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Dot on the line */
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            left: -56px;
+            top: 1.4rem;
+            width: 16px;
+            height: 16px;
+            background: #FF6B9D;
+            border: 3px solid #000;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Horizontal connector */
+        .timeline-entry::after {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: calc(1.4rem + 6px);
+            width: 38px;
+            height: 3px;
+            background: #000;
+        }
+
+        .timeline-card {
+            padding: 1.4rem 1.6rem;
+            background: #fff;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .timeline-entry:nth-child(4n+1) .timeline-card {
+            background: #FFF8DC;
+        }
+
+        .timeline-entry:nth-child(4n+2) .timeline-card {
+            background: #E8F4FD;
+        }
+
+        .timeline-entry:nth-child(4n+3) .timeline-card {
+            background: #FFE8EF;
+        }
+
+        .timeline-entry:nth-child(4n+4) .timeline-card {
+            background: #EDFFD6;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+            opacity: 0.7;
+        }
+
+        .timeline-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+
+        .timeline-card p {
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            border-top: 3px solid #000;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 0 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.15rem;
+            }
+
+            .pills {
+                gap: 0.5rem;
+            }
+
+            .pill {
+                font-size: 0.85rem;
+                padding: 0.3rem 0.75rem;
+            }
+
+            .section-heading {
+                font-size: 1.7rem;
+            }
+
+            .timeline {
+                padding-left: 40px;
+            }
+
+            .timeline-entry::before {
+                left: -46px;
+                width: 14px;
+                height: 14px;
+            }
+
+            .timeline-entry::after {
+                left: -32px;
+                top: calc(1.4rem + 5px);
+                width: 30px;
+            }
+
+            .timeline-card {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Chris Carella</div>
+            <nav>
+                <a href="#experiments">Experiments</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Hi, I'm <span class="highlight">Chris</span>.</h1>
+            <p class="tagline">I build <span class="highlight">AI things</span> at Deloitte. I am equal parts:</p>
+            <div class="pills">
+                <span class="pill">Computer Scientist</span>
+                <span class="pill">Capitalist</span>
+                <span class="pill">Product Manager</span>
+                <span class="pill">Builder</span>
+            </div>
+        </section>
+
+        <section class="experiments" id="experiments">
+            <h2 class="section-heading">Experiments</h2>
+
+            <div class="timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Mar 28, 2026</div>
+                        <h3>Voice-to-Architecture Diagrams</h3>
+                        <p>Built a tool that converts spoken system descriptions into Mermaid diagrams using Claude. Talk through your architecture, get a diagram back.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Mar 15, 2026</div>
+                        <h3>AI Deal Screener</h3>
+                        <p>Prototyped a deal screener that scores startup pitch decks against custom investment theses. Feed it a thesis, feed it decks, get ranked output.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Feb 20, 2026</div>
+                        <h3>Slack Thread Summarizer</h3>
+                        <p>Created a browser extension that summarizes Slack threads into structured decision logs. Turns 47 messages into three bullet points.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Jan 10, 2026</div>
+                        <h3>Multi-Agent Code Review</h3>
+                        <p>Experimented with multi-agent code review — three Claude instances debating PR quality, catching what single-pass review misses.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-card">
+                        <div class="timeline-date">Dec 1, 2025</div>
+                        <h3>AI Weekly Brief Generator</h3>
+                        <p>Hacked together an AI-powered weekly brief generator for executive stakeholders. Pulls from docs, email, and Slack to draft a one-pager.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Chris Carella &middot; 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
